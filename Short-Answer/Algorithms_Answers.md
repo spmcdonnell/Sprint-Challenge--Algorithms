@@ -27,4 +27,18 @@ up the call stack.
 
 ## Exercise II
 
+I think you could initially check the floor that is halfway up, and then see if it breaks. 
+
+If it does break, then I would take all of the floors from 1 up to the middle floor, 
+and check the halfway point floor between those. 
+
+If it does not break, I would do the same thing, only I would check the halfway floor between the one
+I just checked and the top floor.
+
+I would repeat this process of checking the floor in between the one I just checked and the either 
+the 1st floor or the top floor depending on if the egg broke or not, until I came to the last floor left
+to check in which the egg breaks, which should give me f.
+
+I think this would be O(log(n)) time since you are halving the number of floors to check every time.
+
 
