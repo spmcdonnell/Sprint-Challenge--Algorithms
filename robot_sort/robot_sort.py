@@ -101,17 +101,19 @@ class SortingRobot:
         # Fill this out
 
         # This seems like bubble sort, the difference being you have to traverse
-        # the list left to right and 'bubble' the largest value up to the end of
-        # the list, then traverse it right to left and 'bubble' the smallest value
+        # the list left to right and 'bubble' the largest unsorted value up to the end of
+        # the list, then traverse it right to left and 'bubble' the smallest unsorted value
         # down to the front of the list, and repeat that process back and forth
         # until it is sorted.
 
         self.set_light_on()
+
         self.swap_item()
-        self.move_right()
 
         while self.light_is_on():
             self.set_light_off()
+
+            print(self._list)
 
             while self.can_move_right():
                 if self.compare_item() == -1:
@@ -121,11 +123,19 @@ class SortingRobot:
                 else:
                     self.move_right()
 
+            if self.light_is_on() == False:
+                break
+
+            self.set_light_off()
+
             while self.can_move_left():
                 if self.compare_item() == 1:
                     self.swap_item()
                     self.move_left()
                     self.set_light_on()
+                elif self.compare_item() == None and self.light_is_on() == False:
+                    self.swap_item()
+                    break
                 else:
                     self.move_left()
 
@@ -140,4 +150,4 @@ if __name__ == "__main__":
     robot = SortingRobot(l)
 
     robot.sort()
-    print(robot._list)
+    # print(robot._list)
