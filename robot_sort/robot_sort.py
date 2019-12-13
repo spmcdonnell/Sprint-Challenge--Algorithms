@@ -99,14 +99,15 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        # self.set_light_on()
-        self.swap_item()
 
-        while self.can_move_right():
-            print(self._position)
-            self.move_right()
+        self.set_light_on()
 
-        print(self._list)
+        while self.light_is_on():
+            self.set_light_off
+
+            if self.compare_item() == 1:
+                self.swap_item()
+                self.set_light_on()
 
 
 if __name__ == "__main__":
@@ -119,4 +120,4 @@ if __name__ == "__main__":
     robot = SortingRobot(l)
 
     robot.sort()
-    # print(robot._list)
+    print(robot._list)
